@@ -1,0 +1,26 @@
+{
+  "name": "kawal",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.22.0",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm typecheck && pnpm test",
+    "dev:api": "pnpm --filter @kawal/api dev",
+    "dev:web": "pnpm --filter @kawal/web dev",
+    "build:web": "pnpm --filter @kawal/web build"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

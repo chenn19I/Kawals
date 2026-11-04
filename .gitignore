@@ -1,0 +1,74 @@
+﻿# Dependencies
+node_modules/
+.node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+.output/
+.vite/
+coverage/
+*.tsbuildinfo
+
+# Local runtime state
+apps/api/data/
+data/
+*.sqlite
+*.sqlite3
+*.db
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+!**/.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+secrets/
+.secrets/
+
+# Local prototypes and scratch files
+Kawal.html
+Kawal_Voice.html
+*.local.html
+scratch/
+tmp/
+temp/
+
+# QA artifacts
+qa/
+screenshots/
+playwright-report/
+test-results/
+puppeteer/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+pnpm-debug.log*
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Internal docs and private notes (kept local)
+SECURITY.md
+penjelasan*.md
+*.private.md
+NOTES.md
+notes/
+
+# Integration experiments (contain identifiers, local only)
+spikes/

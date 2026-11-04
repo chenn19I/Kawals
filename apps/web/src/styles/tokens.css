@@ -1,0 +1,87 @@
+:root {
+  --concrete: #d8dcdd;
+  --paper: #f7f8f6;
+  --paper-raised: #fbfcfa;
+  --paper-deep: #eef0ed;
+  --ink: #22272b;
+  --ink-soft: #5b656a;
+  --line: #b5bcbe;
+  --line-soft: #c9cfd1;
+  --line-strong: #7c8589;
+  --orange: #f2551d;
+  --green: #2e7d5b;
+  --red: #b3261e;
+  --kraft: #c9b79a;
+  --graphite: #1a2023;
+  --graphite-2: #20262a;
+  --graphite-3: #2a3135;
+  --white: #ffffff;
+
+  /*
+   * Decision colors. They are paired with text and icons everywhere,
+   * never used as the only signal.
+   */
+  --pass: #2e7d5b;
+  --hold: #f2551d;
+  --block: #b3261e;
+  --pass-wash: rgba(46, 125, 91, 0.09);
+  --hold-wash: rgba(242, 85, 29, 0.09);
+  --block-wash: rgba(179, 38, 30, 0.08);
+
+  /*
+   * Signal blue marks live systems, links, scanning, and interactive focus.
+   */
+  --signal: #1b3ff0;
+  --signal-strong: #102bb4;
+  --signal-bright: #8ba0ff;
+  --signal-soft: #ccd5ff;
+  --signal-wash: rgba(27, 63, 240, 0.08);
+  --signal-wash-strong: rgba(27, 63, 240, 0.16);
+  --signal-line: rgba(27, 63, 240, 0.34);
+  --signal-glow: rgba(27, 63, 240, 0.38);
+  --signal-glow-dark: rgba(139, 160, 255, 0.32);
+
+  /*
+   * Deep navy is the mascot stage and the closing footer.
+   */
+  --navy: #12102b;
+  --navy-deep: #0b0a1e;
+  --navy-soft: #1c1a3a;
+  --navy-line: rgba(231, 235, 255, 0.14);
+  --navy-text: #f3f1ff;
+  --navy-muted: #a8a4c8;
+
+  --font-display: 'Archivo', 'Archivo Variable', 'Arial Narrow', sans-serif;
+  --font-body: 'Archivo', 'Archivo Variable', 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+
+  --radius-slip: 2px;
+  --radius-control: 3px;
+  --radius-pill: 999px;
+
+  --gutter: clamp(18px, 3.2vw, 44px);
+  --page-max: 1440px;
+  --header-height: 72px;
+
+  --shadow-paper:
+    0 1px 0 rgba(34, 39, 43, 0.06),
+    0 28px 70px -46px rgba(34, 39, 43, 0.42);
+  --shadow-lift: 0 30px 70px -48px rgba(34, 39, 43, 0.65);
+  --shadow-signal: 0 18px 50px -30px rgba(27, 63, 240, 0.55);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --fs-xs: 11px;
+  --fs-sm: 13px;
+  --fs-base: 15px;
+  --fs-md: 17px;
+  --fs-lg: 22px;
+  --fs-xl: 32px;
+  --fs-2xl: 48px;
+  --fs-3xl: clamp(52px, 7vw, 96px);
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --fs-3xl: clamp(46px, 7.4vw, 82px);
+  }
+}

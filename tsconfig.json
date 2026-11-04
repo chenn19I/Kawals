@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@kawal/rules": ["packages/rules/src/index.ts"],
+      "@kawal/fixtures": ["fixtures/src/index.ts"]
+    }
+  },
+  "include": [
+    "apps/**/*.ts",
+    "apps/**/*.tsx",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
+    "fixtures/**/*.ts",
+    "fixtures/**/*.tsx",
+    "vitest.config.ts"
+  ],
+  "exclude": ["node_modules", "**/dist"]
+}
