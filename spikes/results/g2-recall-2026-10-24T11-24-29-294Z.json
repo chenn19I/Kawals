@@ -1,0 +1,170 @@
+{
+  "runId": "2026-10-24T11-24-29-294Z",
+  "startedAt": "2026-10-24T11:24:29.297Z",
+  "sourceWriteFile": "g2-2026-10-24T11-16-20-552Z.json",
+  "accountId": "0xb45b9601c165e16caccfe392f756bdc8a36b38ccd9cd89d9296f5d24e243fc81",
+  "namespace": "kwl_a207ee5528dcf574",
+  "queries": [
+    {
+      "index": 1,
+      "query": "Alamat mana yang saya masukkan daftar tolak?",
+      "expectedId": "alamat-ditolak",
+      "expectedBlob": "EVGb6mIzqDA8W0dBy1BN7KFyXC-L5ul49-Hz_QAY6Ps",
+      "elapsedMs": 8408,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "EVGb6mIzqDA8W0dBy1BN7KFyXC-L5ul49-Hz_QAY6Ps",
+        "distance": 0.41855765421712343,
+        "text": "Saya menolak transfer ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu meminta 2 SUI lalu menghilang. Alamat ini masuk daftar tolak saya."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 2,
+      "query": "Siapa penjual langganan yang saya percaya?",
+      "expectedId": "alamat-dipercaya",
+      "expectedBlob": "tDEnLX55a6hrhbeSGBUNvek5JAstRxbyuVgEQtM04Rw",
+      "elapsedMs": 960,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "tDEnLX55a6hrhbeSGBUNvek5JAstRxbyuVgEQtM04Rw",
+        "distance": 0.42102065190174776,
+        "text": "Alamat 0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3 adalah penjual langganan yang sudah dua kali transaksi lancar. Saya mempercayainya untuk transfer hingga 5 SUI."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 3,
+      "query": "Berapa total SUI keluar yang boleh sebelum ditahan?",
+      "expectedId": "batas-outflow",
+      "expectedBlob": "rtK57363M_fg7FCAkzbVlZyQ9jDuoj9se7FZKFXfRoc",
+      "elapsedMs": 1867,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "rtK57363M_fg7FCAkzbVlZyQ9jDuoj9se7FZKFXfRoc",
+        "distance": 0.4069738604330694,
+        "text": "Aturan pribadi saya: tahan setiap transaksi dengan total SUI keluar di atas 5 SUI, kecuali saya menyetujuinya secara eksplisit."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 4,
+      "query": "Berapa batas transfer ke penerima baru?",
+      "expectedId": "batas-penerima-baru",
+      "expectedBlob": "W45on3AheRSoITkc1BHae8Kbq4sLGtM-HRd8M0oR6ko",
+      "elapsedMs": 1689,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "W45on3AheRSoITkc1BHae8Kbq4sLGtM-HRd8M0oR6ko",
+        "distance": 0.4868741137759406,
+        "text": "Aturan pribadi saya: penerima yang belum pernah saya kirimi hanya boleh menerima maksimal 1 SUI."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 5,
+      "query": "Apakah NFT boleh ikut berpindah?",
+      "expectedId": "objek-non-koin",
+      "expectedBlob": "iPXqJ76jeXZ8brEGiMTVpEISViLsM_fYT2N5tCx09Q4",
+      "elapsedMs": 1268,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "iPXqJ76jeXZ8brEGiMTVpEISViLsM_fYT2N5tCx09Q4",
+        "distance": 0.36571422000454934,
+        "text": "Saya tidak mengizinkan objek non-koin, seperti NFT, ikut berpindah tanpa persetujuan eksplisit."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 6,
+      "query": "Apa yang saya lakukan dengan paket Move asing?",
+      "expectedId": "paket-asing",
+      "expectedBlob": "DhaEMIA-DHTXBjO607_El-tMulkipn5ozBIZPIIxg8k",
+      "elapsedMs": 1033,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "DhaEMIA-DHTXBjO607_El-tMulkipn5ozBIZPIIxg8k",
+        "distance": 0.30626344724196075,
+        "text": "Saya menahan transaksi yang memanggil paket Move yang belum ada di allowlist saya, misalnya paket 0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 7,
+      "query": "Kapan saya menolak transfer 2 SUI?",
+      "expectedId": "keputusan-tolak",
+      "expectedBlob": "6aAP6JpCOlPC9-m6VeE7-tJwsbN59rYODgXRqjOHpdc",
+      "elapsedMs": 992,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "EVGb6mIzqDA8W0dBy1BN7KFyXC-L5ul49-Hz_QAY6Ps",
+        "distance": 0.3043594588070334,
+        "text": "Saya menolak transfer ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu meminta 2 SUI lalu menghilang. Alamat ini masuk daftar tolak saya."
+      },
+      "top1BlobMatch": false,
+      "top1TextMatch": true
+    },
+    {
+      "index": 8,
+      "query": "Kapan saya meloloskan transfer 2 SUI?",
+      "expectedId": "keputusan-lolos",
+      "expectedBlob": "B-2GdBakMZZkFtNvj-HptzVbGd3_S-k3kzEC41vxldE",
+      "elapsedMs": 963,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "B-2GdBakMZZkFtNvj-HptzVbGd3_S-k3kzEC41vxldE",
+        "distance": 0.3777780469233899,
+        "text": "Saya pernah meloloskan transfer 2 SUI ke alamat 0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3 karena alamat itu penjual langganan tepercaya."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 9,
+      "query": "Bagaimana format penjelasan yang saya inginkan?",
+      "expectedId": "preferensi-penjelasan",
+      "expectedBlob": "omocSUxZnAoKtLe5nwuqov1f-lPEIn-I9Vh1uG5_9N0",
+      "elapsedMs": 917,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "omocSUxZnAoKtLe5nwuqov1f-lPEIn-I9Vh1uG5_9N0",
+        "distance": 0.40130959785853326,
+        "text": "Saya ingin penjelasan putusan dalam bahasa Indonesia yang singkat: satu kalimat ringkasan dan maksimal tiga detail."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    },
+    {
+      "index": 10,
+      "query": "Apa yang terjadi jika simulasi gagal atau timeout?",
+      "expectedId": "simulasi-gagal",
+      "expectedBlob": "VEnuSY4_z2x64djp8joIkAn5TB6CYzOZSsMZGubY7So",
+      "elapsedMs": 942,
+      "resultCount": 5,
+      "top1": {
+        "blob_id": "VEnuSY4_z2x64djp8joIkAn5TB6CYzOZSsMZGubY7So",
+        "distance": 0.4088755075073308,
+        "text": "Jika simulasi transaksi gagal atau tidak menjawab dalam 5 detik, saya menolak transaksi itu."
+      },
+      "top1BlobMatch": true,
+      "top1TextMatch": true
+    }
+  ],
+  "summary": {
+    "queries": 10,
+    "top1BlobMatches": 9,
+    "top1TextMatches": 10,
+    "top1Relevant": 10,
+    "avgLatencyMs": 1904,
+    "p95LatencyMs": 8408,
+    "minLatencyMs": 917,
+    "maxLatencyMs": 8408
+  },
+  "finishedAt": "2026-10-24T11:24:48.342Z"
+}
