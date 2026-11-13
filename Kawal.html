@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kawal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#12102b;--lamp:#ffcf5a;--paper:#f6ecd0;--lav:#9fb0d8;--ok:#34c38f;--hold:#ff9a2e;--no:#ff4d3a;--pg:#e8e5f4;--fg:#1a1740;--hf:'Pixelify Sans','Courier New',monospace;--bf:'Special Elite','Courier New',monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--pg:#0a0918;--fg:#e8e5f4}}
+:root[data-theme=dark]{--pg:#0a0918;--fg:#e8e5f4}
+html,body{margin:0;background:var(--pg);color:var(--fg);font-family:var(--bf)}
+main{max-width:1280px;margin:0 auto;padding:12px}
+#stage{position:relative;aspect-ratio:16/9;container-type:inline-size;overflow:hidden;background:var(--ink)}
+#stage:fullscreen{width:min(100vw,177.78vh);height:min(56.25vw,100vh);margin:auto;aspect-ratio:auto}
+#c{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+#c.shk{animation:k .35s steps(5)}
+@keyframes k{20%{transform:translate(1.4cqw,-.8cqw)}50%{transform:translate(-1.2cqw,.7cqw)}80%{transform:translate(.6cqw,-.3cqw)}}
+#fx{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,transparent 50%,rgba(5,4,18,.7)),repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px)}
+#fx::after{content:"";position:absolute;left:0;right:0;height:14%;background:linear-gradient(transparent,rgba(255,255,255,.05),transparent);animation:sb 5s linear infinite}
+@keyframes sb{from{top:-14%}to{top:100%}}
+.sc{position:absolute;inset:0;z-index:2;opacity:0;visibility:hidden;color:var(--paper);text-shadow:.28cqw .28cqw 0 #0a0820;transition:opacity .3s}
+.sc.on{opacity:1;visibility:visible}
+.sc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,12,38,.6),transparent 62%)}
+.sc.rv::before{background:linear-gradient(270deg,rgba(14,12,38,.72),transparent 62%)}
+.sc>*{position:absolute;margin:0}
+[data-at]{opacity:0;transform:translateY(1cqw);transition:opacity .4s steps(4),transform .4s steps(4)}
+[data-at].in{opacity:1;transform:none}
+.h{font:700 5.6cqw/1.05 var(--hf);left:6cqw;top:10cqw;width:60cqw}
+.h[data-at]{transform:scale(1.3);transform-origin:0 50%}
+.h[data-at].in{transform:none}
+.p{font:2cqw/1.35 var(--bf);left:6cqw;width:42cqw}
+.ty{display:block;overflow:hidden;white-space:nowrap;width:0;opacity:1;transform:none;transition:width 1.3s steps(18)}
+.ty.in{width:100%}
+.tag{left:6cqw;top:5cqw;background:var(--paper);color:var(--ink);text-shadow:none;padding:.4cqw 1.2cqw;font:1.6cqw var(--bf);rotate:-2deg}
+.warn{width:22cqw;background:var(--paper);color:var(--ink);text-shadow:none;border:.4cqw solid var(--ink);box-shadow:.6cqw .6cqw 0 #000;font:1.5cqw/1.3 var(--bf);padding:1cqw 1.2cqw}
+.warn.in{animation:bl .6s steps(2) infinite}
+@keyframes bl{50%{border-color:var(--no)}}
+.warn b{display:inline-block;background:var(--hold);width:2.4cqw;text-align:center;margin-right:.6cqw;font:700 1.8cqw var(--hf)}
+.bub{background:var(--paper);color:var(--ink);text-shadow:none;font:2cqw/1.25 var(--hf);padding:1cqw 1.6cqw;border:.4cqw solid var(--ink);box-shadow:.6cqw .6cqw 0 #000;max-width:20cqw}
+.steps{left:4cqw;top:4cqw;width:34cqw;list-style:none;padding:0;counter-reset:s}
+.steps li{position:relative;padding-left:4.6cqw;margin-bottom:1.6cqw;font:1.55cqw/1.3 var(--bf)}
+.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:3.2cqw;height:3.2cqw;background:var(--lamp);color:var(--ink);font:700 2cqw/3.2cqw var(--hf);text-align:center;text-shadow:none}
+.steps b{display:block;font:700 2.2cqw/1.2 var(--hf)}
+.v{left:57cqw;top:9cqw;width:36cqw}
+.v .st{display:inline-block;font:700 6.2cqw var(--hf);padding:.2cqw 1.6cqw;border:.6cqw solid;background:rgba(18,16,43,.88);text-shadow:none;transform:rotate(-7deg) scale(2.8);opacity:0;transition:transform .18s steps(3),opacity .18s steps(3)}
+.v.in .st{transform:rotate(-7deg) scale(1);opacity:1}
+.v p{font:1.7cqw/1.3 var(--bf);margin:1.6cqw 0 0}
+.ok{color:var(--ok);border-color:var(--ok)}.hold{color:var(--hold);border-color:var(--hold)}.no{color:var(--no);border-color:var(--no)}
+.note{left:5cqw;width:30cqw;background:var(--paper);color:var(--ink);text-shadow:none;padding:1.1cqw 1.6cqw 1.1cqw 2cqw;font:1.45cqw/1.3 var(--bf);border-left:.8cqw solid;box-shadow:.5cqw .5cqw 0 #000}
+.note b{display:block;font:700 1.9cqw var(--hf)}
+.note::after{content:"";position:absolute;right:-.6cqw;top:45%;width:1.2cqw;height:1.2cqw;background:var(--no)}
+.str{left:0;top:0;width:100%;height:100%;pointer-events:none}
+.str path{opacity:1;transform:none;stroke:var(--no);stroke-width:.6;fill:none;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .6s steps(8)}
+.str path.in{stroke-dashoffset:0}
+.stat{width:21cqw;background:rgba(18,16,43,.9);border:.4cqw solid var(--lamp);padding:1.1cqw 1.3cqw}
+.stat b{display:block;font:700 4.4cqw/1.1 var(--hf);color:var(--lamp)}
+.stat span{font:1.4cqw/1.3 var(--bf)}
+.chips{left:50cqw;top:43cqw;display:flex;gap:1cqw;font:1.6cqw var(--bf)}
+.chips i{font-style:normal;border:.3cqw solid var(--lav);padding:.5cqw 1.2cqw;background:rgba(18,16,43,.8)}
+.cap{font:1.35cqw/1.35 var(--bf);color:var(--lav)}
+.rules{left:4cqw;top:11cqw;width:46cqw;list-style:none;padding:0}
+.rules li{display:flex;gap:1cqw;align-items:baseline;margin-bottom:.9cqw;font:1.4cqw/1.25 var(--bf)}
+.rules li.in{animation:fl .5s steps(3)}
+@keyframes fl{0%{background:var(--lamp);color:var(--ink);text-shadow:none}100%{background:transparent}}
+.rules i{font-style:normal;color:var(--lamp);min-width:2.4cqw}
+.rules b{min-width:7.4cqw;text-align:center;font:700 1.35cqw var(--hf);padding:.1cqw .5cqw;border:.25cqw solid;background:rgba(18,16,43,.88);text-shadow:none}
+.sec{list-style:none;padding:0}
+.sec li{position:relative;padding-left:3cqw;margin-bottom:1.6cqw;font:1.4cqw/1.3 var(--bf)}
+.sec li::before{content:"";position:absolute;left:0;top:.4cqw;width:1.3cqw;height:1.3cqw;background:var(--ok)}
+.sec b{display:block;font:700 1.9cqw/1.2 var(--hf)}
+#bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:14px}
+#bar button{font:700 15px var(--hf);background:var(--lamp);color:var(--ink);border:3px solid var(--ink);box-shadow:3px 3px 0 var(--fg);padding:6px 14px;cursor:pointer}
+#bar button:focus-visible,#sk:focus-visible{outline:3px solid var(--no);outline-offset:2px}
+#sk{flex:1;min-width:140px;accent-color:var(--no)}
+</style>
+</head>
+<body>
+<main>
+<div id="stage" role="img" aria-label="Kawal motion pitch: a pixel 3D detective elephant guarding Sui transactions">
+<canvas id="c" width="480" height="270"></canvas><div id="fx"></div>
+
+<section class="sc">
+ <p class="tag" data-at=".3">Case file #001: a Sui transaction</p>
+ <h1 class="h" style="font-size:5cqw;width:64cqw"><span class="ty" data-at=".8">Your wallet doesn’t</span><span class="ty" data-at="2.4">remember who you are.</span></h1>
+ <p class="p" style="top:30cqw" data-at="4.4">Same warning. Every person. Every time.</p>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:4.2cqw;width:50cqw;top:6cqw" data-at=".3">The same warning for everyone.</h2>
+ <p class="p" style="top:25cqw" data-at="1.6">Last week you rejected that address. Your wallet has no idea.</p>
+ <div class="warn" style="left:62cqw;top:3cqw" data-at="2.6"><b>!</b>General warning<br>This transaction may be risky.</div>
+ <div class="warn" style="left:66cqw;top:9cqw" data-at="3.7"><b>!</b>General warning<br>This transaction may be risky.</div>
+ <div class="warn" style="left:70cqw;top:15cqw" data-at="4.8"><b>!</b>General warning<br>This transaction may be risky.</div>
+ <p class="p" style="top:46cqw;width:50cqw" data-at="6">Without memory, you repeat the same decisions and the same risks.</p>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:9cqw;top:10cqw;width:44cqw" data-at=".4">Meet<br>Kawal.</h2>
+ <p class="p" style="top:32cqw" data-at="1.8">The Sui transaction guard that remembers your decisions.</p>
+ <p class="p" style="top:42cqw;color:var(--lamp)" data-at="3.4">An elephant’s memory, for your wallet.</p>
+ <div class="bub" style="left:76cqw;top:5cqw" data-at="4.8">I remember everything.</div>
+</section>
+
+<section class="sc">
+ <ol class="steps">
+  <li data-at=".5"><b>Check before you sign.</b>Risk is scored before a transaction reaches your wallet.</li>
+  <li data-at="3.5"><b>Remember your decisions.</b>Every decision is saved as memory.</li>
+  <li data-at="6.5"><b>Turn memory into policy.</b>Reused on the next check.</li>
+ </ol>
+ <div class="v" data-at="2.3" data-off="3.9"><div class="st ok">PASS</div><p>Send 2 SUI to Rani. R8: trusted recipient, amount under the limit.</p></div>
+ <div class="v" data-at="6.3" data-off="7.9"><div class="st hold">HOLD</div><p>Send 12 SUI to a new seller. R4: new recipient, amount above the 1 SUI limit.</p></div>
+ <div class="v" data-at="10.3" data-off="11.9"><div class="st no">REJECT</div><p>Send 3 SUI to 0x9f2…e40. R2: recipient is on the reject list.</p></div>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:3.4cqw;top:4cqw;width:46cqw" data-at=".3">Nine rules, one verdict.</h2>
+ <ul class="rules">
+  <li data-at="1.2"><i>R1</i><b class="no">REJECT</b>Simulation failed or timed out</li>
+  <li data-at="2.3"><i>R2</i><b class="no">REJECT</b>Recipient is on the reject list</li>
+  <li data-at="3.4"><i>R3</i><b class="hold">HOLD</b>Total outflow exceeds personal limit</li>
+  <li data-at="4.5"><i>R4</i><b class="hold">HOLD</b>New recipient, amount above the limit</li>
+  <li data-at="5.6"><i>R5</i><b class="hold">HOLD</b>Calls an unknown Move package</li>
+  <li data-at="6.7"><i>R6</i><b class="hold">HOLD</b>Transfers an object other than a coin</li>
+  <li data-at="7.8"><i>R7</i><b class="hold">HOLD</b>Recipient flagged as dangerous by a data source</li>
+  <li data-at="8.9"><i>R8</i><b class="ok">PASS</b>Trusted recipient, amount under the limit</li>
+  <li data-at="10"><i>R9</i><b class="hold">HOLD</b>No rule matched</li>
+ </ul>
+ <p class="cap" style="left:4cqw;top:50cqw;width:44cqw" data-at="12.5">Default limits: 5 SUI total outflow, 1 SUI new recipient, 5 SUI trusted recipient.</p>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:3.8cqw;top:5cqw;width:44cqw" data-at=".3">Two behaviors that matter.</h2>
+ <p class="p" style="top:17cqw" data-at=".8" data-off="6">A trusted recipient, but never paid before.</p>
+ <p class="p" style="top:17cqw" data-at="6.6">Sending exactly 5 SUI to a trusted recipient.</p>
+ <div class="v" data-at="3.4" data-off="5.8"><div class="st hold">HOLD</div><p>Trust doesn’t skip R4. An amount above the new-recipient limit is still held.</p></div>
+ <div class="v" data-at="9.4" data-off="11.8"><div class="st hold">HOLD</div><p>The R8 limit is strict. Exactly 5 SUI doesn’t pass and falls to R9. Intentional, and tested.</p></div>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:4.2cqw;top:4cqw;width:40cqw" data-at=".3">Memory that decides.</h2>
+ <div class="note" style="top:26%;border-color:var(--ok);rotate:-1.2deg" data-at="1.4"><b>Trusted</b>Rani, 0x7a3…c91. Send up to 5 SUI.</div>
+ <div class="note" style="top:42%;border-color:var(--no);rotate:.9deg" data-at="2.6"><b>Rejected</b>Address 0x9f2…e40. Always rejected.</div>
+ <div class="note" style="top:58%;border-color:var(--hold);rotate:-.8deg" data-at="3.8"><b>Personal limit</b>Total outflow up to 5 SUI.</div>
+ <div class="note" style="top:74%;border-color:var(--lav);rotate:1.1deg" data-at="5"><b>Past decision</b>You rejected 12 SUI to a new seller.</div>
+ <svg class="str" viewBox="0 0 160 90"><path d="M56 29L112 50" pathLength="1" data-at="1.9"/><path d="M56 43.6L112 50" pathLength="1" data-at="3.1"/><path d="M56 58L112 50" pathLength="1" data-at="4.3"/><path d="M56 72.5L112 50" pathLength="1" data-at="5.5"/></svg>
+ <p class="bub" style="left:56cqw;top:4cqw;background:var(--lamp)" data-at="6.6">Memory saved, then used again.</p>
+ <p class="cap" style="left:5cqw;top:92%" data-at="1.4">Demo example data.</p>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:4.2cqw;top:4cqw;width:40cqw" data-at=".3">Learning curve.</h2>
+ <p class="p" style="top:13cqw;width:34cqw" data-at=".8">The more you decide, the better Kawal guards.</p>
+ <div class="note" style="top:32%;border-color:var(--ok);rotate:-1deg" data-at="2"><b>Agreement dial</b>How often you agree with Kawal’s verdicts.</div>
+ <div class="note" style="top:48%;border-color:var(--hold);rotate:.9deg" data-at="3.6"><b>Decision timeline</b>Every decision is recorded, not a passive history.</div>
+ <div class="note" style="top:64%;border-color:var(--no);rotate:-.7deg" data-at="5.2"><b>Most-triggered rules</b>Your habits show in the rules that hold you most.</div>
+ <div class="bub" style="left:58cqw;top:4cqw" data-at="7.5">I’m learning your habits.</div>
+</section>
+
+<section class="sc rv">
+ <h2 class="h" style="font-size:3.6cqw;left:48cqw;top:5cqw;width:46cqw" data-at=".3">Your keys stay yours.</h2>
+ <ul class="sec" style="left:48cqw;top:14cqw;width:46cqw">
+  <li data-at="1.2"><b>Secrets live only on the server.</b>API keys and delegate credentials never enter the web bundle.</li>
+  <li data-at="3.2"><b>No wallet keys in the frontend.</b>Kawal holds no keys and signs nothing.</li>
+  <li data-at="5.2"><b>Amounts are integer MIST.</b>No fractional rounding errors.</li>
+  <li data-at="7.2"><b>Verdicts are deterministic.</b>An LLM never decides the verdict.</li>
+  <li data-at="9.2"><b>Memory is untrusted data.</b>Memory from the chain is validated before it becomes policy.</li>
+ </ul>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:4cqw;top:8cqw;width:44cqw" data-at=".3">Mock Market: 12 scenarios.</h2>
+ <p class="p" style="top:24cqw" data-at="1.6">Every scenario has an expected verdict.</p>
+ <p class="p" style="top:33cqw" data-at="3.4">These fixtures form a regression suite for rules R1 to R9.</p>
+ <p class="cap" style="left:6cqw;top:46cqw" data-at="5.6">Badge colors in this scene are illustrative.</p>
+</section>
+
+<section class="sc">
+ <h2 class="h" style="font-size:3.8cqw;left:52cqw;top:4cqw;width:44cqw" data-at=".3">Auditable. Not a black box.</h2>
+ <div class="stat" style="left:52cqw;top:20cqw" data-at="1"><b data-n="9">0</b><span>pure, deterministic rules, R1 to R9</span></div>
+ <div class="stat" style="left:75cqw;top:20cqw" data-at="1.6"><b data-n="12">0</b><span>Mock Market scenarios as test material</span></div>
+ <div class="stat" style="left:52cqw;top:35cqw" data-at="2.2"><b data-n="110">0</b><span>tests: limits, MIST precision, API, CORS</span></div>
+ <div class="stat" style="left:75cqw;top:35cqw" data-at="2.8"><b data-n="10" data-x="/10">0</b><span>Walrus Memory writes and recalls passed (G2)</span></div>
+ <p class="cap" style="left:52cqw;top:50cqw;width:44cqw" data-at="3.8">Prototype: simulated and replay data, no real transactions signed yet.</p>
+</section>
+
+<section class="sc">
+ <div class="bub" style="left:6cqw;top:8cqw" data-at="1">See you at the checkpoint.</div>
+ <h2 class="h" style="font-size:4cqw;left:50cqw;top:8cqw;width:46cqw" data-at=".4">Kawal holds<br>no keys.</h2>
+ <p class="p" style="left:50cqw;top:18cqw;font-size:2.6cqw;color:var(--lamp)" data-at="1.6">You stay in control.</p>
+ <p class="h" style="left:50cqw;top:26cqw;font-size:8cqw;width:46cqw" data-at="2.8">Kawal</p>
+ <p class="p" style="left:50cqw;top:36cqw;width:44cqw;font-size:1.9cqw" data-at="3.6">The Sui transaction guard that remembers your decisions.</p>
+ <div class="chips" data-at="4.6"><i>Sui</i><i>Walrus Memory</i><i>Tatum</i></div>
+</section>
+</div>
+
+<div id="bar">
+ <button id="pp" type="button">Pause</button>
+ <input id="sk" type="range" min="0" max="126" step="0.01" value="0" aria-label="Video position">
+ <span id="tm">0:00 / 2:06</span>
+ <button id="fs" type="button">Fullscreen</button>
+</div>
+</main>
+
+<script>
+(()=>{
+const $=s=>document.querySelector(s),cv=$('#c'),g=cv.getContext('2d'),stage=$('#stage'),T=126,SC=[0,7,15,23,35,51,63,73,85,99,109,116,126];
+const cc={},rgb=h=>cc[h]||(cc[h]=[1,3,5].map(i=>parseInt(h.slice(i,i+2),16)));
+const R=n=>{const x=Math.sin(n*127.1+7.7)*43758.5;return x-Math.floor(x)};
+const cl=t=>t<0?0:t>1?1:t,ez=t=>{t=cl(t);return t*t*(3-2*t)};
+const rot=(x,z,a)=>{const c=Math.cos(a),s=Math.sin(a);return[x*c+z*s,z*c-x*s]};
+const Z0={x:0,y:0,z:0,r:0,k:1},COL={ok:'#34c38f',hold:'#ff9a2e',no:'#ff4d3a'},OC=['#34c38f','#ff9a2e','#ff4d3a','#6f7fd0'];
+let L=[],M={...Z0},K={},FL=0,OV=null,BU=[];
+function B(x,y,z,w,h,d,c,al,em){const p=rot(x,z,M.r);L.push({x:p[0]+M.x,y:y+h/2+M.y,z:p[1]+M.z,w:w/2,h:h/2,d:d/2,r:M.r,c:rgb(c),k:M.k,al:al||1,em,f:FL})}
+const place=(o,f)=>{M={...Z0,...o};f();M={...Z0}};
+const F=[{n:[0,1,0],v:[[-1,1,-1],[1,1,-1],[1,1,1],[-1,1,1]]},{n:[0,0,1],v:[[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]]},{n:[0,0,-1],v:[[1,-1,-1],[-1,-1,-1],[-1,1,-1],[1,1,-1]]},{n:[1,0,0],v:[[1,-1,1],[1,-1,-1],[1,1,-1],[1,1,1]]},{n:[-1,0,0],v:[[-1,-1,-1],[-1,-1,1],[-1,1,1],[-1,1,-1]]}];
+/* voxel renderer: isometric camera, 5-step cel shading, pixel outline */
+function draw(){
+ const st=Math.sin(K.t),ct=Math.cos(K.t);
+ for(const b of L){const q=rot(b.x-K.tx,b.z-K.tz,K.a);b.X=q[0];b.Z=q[1];b.Y=b.y-K.ty;b.D=b.f?-1e9:b.Y*st+b.Z*ct}
+ L.sort((p,q)=>p.D-q.D);
+ g.lineJoin='round';g.lineWidth=.7;g.strokeStyle='rgba(8,6,24,.55)';
+ for(const b of L){const an=K.a+b.r;g.globalAlpha=b.al;
+  for(const f of F){
+   const n=rot(f.n[0],f.n[2],an),nd=f.n[1]*st+n[1]*ct;if(nd<.02)continue;
+   const ny=f.n[1]*ct-n[1]*st;
+   let sh=b.em?1.1:Math.round((.42+.58*Math.max(0,-n[0]*.5+ny*.55+nd*.6))*5)/5;sh*=b.k;
+   g.fillStyle=`rgb(${b.c[0]*sh|0},${b.c[1]*sh|0},${b.c[2]*sh|0})`;
+   g.beginPath();
+   f.v.forEach((v,i)=>{const r=rot(v[0]*b.w,v[2]*b.d,an),Y=b.Y+v[1]*b.h,Z=b.Z+r[1],x=K.cx+(b.X+r[0])*K.s,y=K.cy-(Y*ct-Z*st)*K.s;i?g.lineTo(x,y):g.moveTo(x,y)});
+   g.closePath();g.fill();g.stroke()}}
+ g.globalAlpha=1}
+const P=(x,y,z)=>{const q=rot(x-K.tx,z-K.tz,K.a),st=Math.sin(K.t),ct=Math.cos(K.t);return[K.cx+q[0]*K.s,K.cy-((y-K.ty)*ct-q[1]*st)*K.s]};
+function glow(p,r,c,a){const q=g.createRadialGradient(p[0],p[1],0,p[0],p[1],r);q.addColorStop(0,`rgba(${c},${a})`);q.addColorStop(1,`rgba(${c},0)`);g.fillStyle=q;g.fillRect(p[0]-r,p[1]-r,2*r,2*r)}
+function burst(cx,cy,age,col,n){if(age<0||age>1.2)return;g.fillStyle=col;const z=age<.8?3:2;for(let i=0;i<n;i++){const a=i/n*6.283+R(i)*.6,sp=45+R(i+3)*55;g.fillRect(cx+Math.cos(a)*sp*age|0,cy+Math.sin(a)*sp*age+age*age*70|0,z,z)}}
+const cam=o=>{K={a:0,t:.5,s:6,cx:240,cy:190,tx:0,ty:0,tz:0,...o}};
+function tiles(x0,x1,z0,z1,a,b){FL=1;for(let z=z0;z<z1;z+=8)for(let x=x0;x<x1;x+=8)B(x+4,-.6,z+4,8,.6,8,((x+z)/8&1)?a:b);FL=0}
+const tl=()=>tiles(-48,48,-24,32,'#262256','#1f1b48');
+function belt(o){FL=1;for(let i=0;i<14;i++)B(((i*4+o)%56)-26,-1,0,4,1.6,8,i&1?'#3a3566':'#4a4480');B(0,.6,-4.3,56,.5,.6,'#ffcf5a');B(0,.6,4.3,56,.5,.6,'#ffcf5a');FL=0}
+const cr=(x,y,z,c,l,s=1)=>{if(s<.05)return;B(x,y,z,4.4*s,4.2*s,4.4*s,c);B(x,y+4.2*s,z,4.8*s,.5*s,4.8*s,l)};
+const orbs=(u,y)=>{for(let i=0;i<6;i++){const a=u*1.6+i*1.047;B(Math.cos(a)*10,y+Math.sin(u*2+i)*1.2,Math.sin(a)*10,1.4,1.4,1.4,OC[i%4],1,1)}};
+/* KAWAL: detective elephant. w = walking, j = jump height */
+function E(t,m,w,j){m=m||0;const J=j||0,b=Math.sin(t*(w?8:4))*(w?.35:.2)+J,s=Math.sin(t*2.4)*.5,e=Math.sin(t*(w?8:5))*.3,D='#7f90c4',G='#9fb0d8',cy=7.2+m+J,bl=t%3.4<.12?.15:1,cx=s*.5;
+ [[-2.4,-3,0],[2.4,-3,3.14],[-2.4,3,3.14],[2.4,3,0]].forEach(p=>{const q=w?Math.sin(t*8+p[2]):0;B(p[0],w?Math.max(0,q)*1.1:0,p[1]+q*1.2,2.4,3,2.4,D)});
+ B(0,3+b,0,7,5,9,'#c8a05a');B(0,3+b,0,7.2,1,9.2,'#a8803f');
+ B(0,6.4+b,3.2,6.4,1.4,1.8,'#e0402f');B(2.4,4.4+b,3.9,1.2,2.4,.6,'#e0402f');
+ B(0,6.2+b,5.5,6,6,5.5,G);
+ [-1,1].forEach(q=>{B(q*(3.9+e*.3),7+b,5,1.1,4.8,4.2,D);B(q*(4.5+e*.3),7.5+b,5,.3,3.6,2.9,'#e7a3b5');
+  B(q*1.9,9.2+b+(1-bl)*.5,8.3,1,1.1*bl,.3,'#14122b');if(bl==1)B(q*1.9+.2,10+b,8.45,.35,.35,.2,'#fff',1,1);
+  B(q*1.7,5.4+b,8.5,.7,.7,2.2,'#fff4d6')});
+ B(0,6+b,9.1,1.9,3.4,1.9,G);B(cx,3.4+J,9.3,1.9,2.8,1.9,G);
+ B(0,12.1+b,5.5,6.4,1,6.4,'#b88a4a');B(0,13.1+b,5.4,4.4,1.3,4.4,'#d1a45c');B(0,12.1+b,8.8,3.6,.5,1.6,'#8a6431');B(0,14.4+b,5.4,1,.7,1,'#5a3d22');
+ B(0,5+b,-4.9,.7,3,.7,D);B(0,4.4+b,-4.9,1.2,.8,1.2,'#5a3d22');
+ B(cx,3.4+J,10.6,.6,.6,1.6,'#5a3d22');B(cx,cy-3.6,11.3,.6,1.8,.6,'#5a3d22');
+ B(cx,cy+1.6,11.3,4,.6,.6,'#ffcf5a');B(cx,cy-1.8,11.3,4,.6,.6,'#ffcf5a');B(cx-1.7,cy-1.8,11.3,.6,4,.6,'#ffcf5a');B(cx+1.7,cy-1.8,11.3,.6,4,.6,'#ffcf5a');
+ B(cx,cy-1.2,11.3,2.8,3.4,.3,'#9ff3ff',.35,1)}
+function scan(u,V,p,mag,bk){const s=p/4;let sc=0,J=0;
+ V.forEach((c,j)=>{const v=(u-j*p)/s;if(v>2.2&&v<2.9)J=Math.sin((v-2.2)/.7*Math.PI)*2.2});
+ place({z:-9},()=>E(u,mag,0,J));
+ V.forEach((c,j)=>{const v=(u-j*p)/s;if(v<0||v>4)return;let x=0;
+  if(v<1.4)x=-26*(1-ez(v/1.4));else if(v>3)x=(bk&&j==V.length-1?-26:26)*ez(v-3);
+  cr(x,.6,0,'#d9c08a',v>2.2?c:'#8f8aa8',cl((x+26)/4));
+  if(v>1.4&&v<2.2){sc=1;B(x,.6+((v-1.4)/.8)*4.2,0,4.8,.25,4.8,'#9ff3ff',.7,1)}});
+ OV=()=>{if(sc)glow(P(0,5.6,2.3),38,'159,243,255',.4)}}
+function grid(u,gr){tl();
+ for(let i=0;i<9;i++)for(let j=0;j<6;j++){const r=R(i*7+j*3.3),h=.8+r*7*ez(gr*1.6-r*.6)+Math.sin(u*2+i+j)*.3,c=r<.28?'#34c38f':r<.5?'#ff9a2e':r<.62?'#ff4d3a':'#6f7fd0';
+  B((i-4)*5,0,(j-3)*5,3.6,h,3.6,c,1,(i*3+j*5+(u*3|0))%13==0)}
+ place({z:19,r:-K.a},()=>E(u,0))}
+function rain(u){g.fillStyle='rgba(170,190,255,.4)';for(let i=0;i<70;i++)g.fillRect(((R(i)*480-u*30)%480+480)%480|0,(R(i+99)*270+u*(180+R(i+5)*120))%270|0,1,4)}
+function spark(u){const c=['#ffcf5a','#f6ecd0','#34c38f'];for(let i=0;i<28;i++){g.fillStyle=c[i%3];g.fillRect(R(i)*480|0,270-((u*(14+R(i+3)*20)+R(i+9)*270)%270)|0,2,2)}}
+const SF=[
+u=>{cam({a:.1+Math.sin(u*.5)*.04,t:.42,s:5.2,cy:205,tx:-4+u*1.5});tl();
+ for(let i=0;i<12;i++){const x=-54+i*9.5,h=12+R(i)*16;B(x,0,-22,7.5,h,6,i&1?'#2a2660':'#322d70');
+  for(let r=0;r<h/4-.5;r++)for(let c=0;c<2;c++)if(R(i*9+r*2+c)>.5)B(x-1.8+c*3.6,2+r*4,-18.9,1.5,1.6,.2,'#ffcf5a',1,1)}
+ B(10,0,2,.9,17,.9,'#3a3566');B(8.2,16.2,2,4,1,3,'#ffcf5a',1,1);
+ const wx=Math.min(8,-30+u*7),k=.28+.72*cl(1-Math.abs(wx-10)/11);
+ place({x:wx,z:5,r:Math.PI/2*(1-ez((u-5.4)/.8)),k},()=>E(u,0,wx<8?1:0));
+ OV=()=>{const p=P(10,16,2);glow(p,70,'255,207,90',.5);g.fillStyle='rgba(255,207,90,.12)';g.beginPath();g.moveTo(p[0]-4,p[1]);g.lineTo(p[0]+4,p[1]);g.lineTo(p[0]+40,p[1]+95);g.lineTo(p[0]-40,p[1]+95);g.fill();rain(u);
+  if((u>2&&u<2.1)||(u>2.25&&u<2.3)){g.fillStyle='rgba(220,230,255,.4)';g.fillRect(0,0,480,270)}}},
+u=>{cam({a:.28,t:.5,s:5.4+Math.sin(u*.6)*.2,cx:225});tl();belt(u*4);
+ for(let i=0;i<6;i++){const x=((i*10+u*7)%60)-34;cr(x,.6,0,'#d9c08a','#8f8aa8',cl(Math.min((x+34)/4,(16-x)/4)))}
+ const f=Math.floor(u*3)%2;B(22,0,0,9,11,5,'#6f7fd0');B(22,3,2.6,6.4,5,.3,f?'#ffcf5a':'#6b5420',1,f);B(22,11,0,3,1.5,3,'#5361b5');
+ OV=()=>{if(f)glow(P(22,5.5,3),50,'255,207,90',.4)}},
+u=>{cam({a:u*.9,t:.45,s:11+ez(u/3)*2.5,cx:330,cy:225});tl();B(0,0,0,17,1,19,'#4b3f99');place({y:1},()=>E(u,0));orbs(u,7);
+ OV=()=>glow([330,100],130,'255,207,90',.3)},
+u=>{cam({a:.2+Math.sin(u*.4)*.1,s:6+Math.sin(u*.7)*.25,cy:190});tl();belt(0);scan(u,['#34c38f','#ff9a2e','#ff4d3a'],4,-1.6,1)},
+u=>{cam({a:.2+Math.sin(u*.3)*.08,s:6,cy:190});tl();belt(u*5);place({z:-9},()=>E(u,-1.6));const V=['#34c38f','#ff9a2e','#ff4d3a','#ff9a2e'];
+ for(let i=0;i<6;i++){const q=i*10+u*5,x=q%60-34;cr(x,.6,0,'#d9c08a',x>-1?V[(i+Math.floor(q/60)*2)%4]:'#8f8aa8',cl(Math.min((x+34)/4,(16-x)/4)))}
+ OV=()=>glow(P(0,5.6,2.3),38,'159,243,255',.25)},
+u=>{cam({a:.2,s:6,cy:190});tl();belt(0);scan(u,['#ff9a2e','#ff9a2e'],6,-1.6)},
+u=>{cam({a:.5+u*.04,t:.62,s:5,cx:330,cy:130});grid(u,u/3.5)},
+u=>{cam({a:.3+u*.05,t:.6,s:5,cx:330,cy:130});grid(u+2,1)},
+u=>{cam({a:.3,t:.5,s:8,cx:125,cy:215});tl();place({x:-7},()=>E(u,0));B(9,0,0,9,9,8,'#3a3566');B(9,9,0,9.6,.8,8.4,'#5361b5');B(9,3,4.1,3,3,.3,'#ffcf5a',1,Math.floor(u*3)%2);B(9,11+Math.sin(u*3)*.4,0,3,2,3,'#ffcf5a',1,1)},
+u=>{cam({a:.3,t:.6,s:5.5,cx:320,cy:150});tl();place({z:-18},()=>E(u,0));const k=Math.floor(u*1.3)%12,V=['#34c38f','#ff9a2e','#ff4d3a'];
+ for(let i=0;i<12;i++){const a=i==k;cr((i%4-1.5)*7,a?2.5:.6,(((i/4)|0)-1)*7,'#d9c08a',a?V[i%3]:'#8f8aa8')}
+ OV=()=>glow(P(0,3,0),90,'255,207,90',.18)},
+u=>{cam({a:.9+u*.07,t:.7,s:4.6,cx:150,cy:125});grid(u+9,1)},
+u=>{cam({a:Math.sin(u*.8)*.6,t:.45,s:12.5,cx:130,cy:225});tl();B(0,0,0,17,1,19,'#4b3f99');place({y:1},()=>E(u+3,0,0,Math.max(0,Math.sin(u*4))*2.5));orbs(u,7);
+ OV=()=>{glow([130,100],130,'255,207,90',.3);spark(u);const c=['#ffcf5a','#34c38f','#ff4d3a','#9ff3ff'];for(let i=0;i<9;i++)burst(60+R(i)*360,40+R(i+7)*80,u-.8-i*.9,c[i%4],26)}}];
+function stars(u){g.fillStyle='#f6ecd0';for(let i=0;i<40;i++)if((u*2+R(i)*9|0)%3)g.fillRect(R(i)*480|0,R(i+50)*110|0,1,1)}
+function wipe(u,i){if(u>.6)return;const w=u/.6;g.fillStyle='#12102b';for(let y=0;y<17;y++)for(let x=0;x<30;x++)if(i&1?x/30>w:R(x*17+y*3.1)>w)g.fillRect(x*16,y*16,16,16)}
+const SCE=[...document.querySelectorAll('.sc')],EL=SCE.map(s=>[...s.querySelectorAll('[data-at]')]);
+const sk=$('#sk'),pp=$('#pp'),tm=$('#tm'),fmt=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+let t=0,play=!matchMedia('(prefers-reduced-motion: reduce)').matches,last=performance.now(),cur=-1;
+function upd(){pp.textContent=play?'Pause':t>=T-.05?'Replay':'Play'}
+function render(){
+ let i=SC.findIndex((v,k)=>t>=v&&t<SC[k+1]);if(i<0)i=11;const u=t-SC[i];
+ if(i!=cur){cur=i;SCE.forEach((s,k)=>s.classList.toggle('on',k==i))}
+ BU=[];
+ EL.forEach((a,k)=>a.forEach(e=>{const at=+e.dataset.at,on=k==i&&u>=at&&(e.dataset.off==null||u<+e.dataset.off);
+  if(on&&e.classList.contains('v')){const age=u-at;
+   if(!e.classList.contains('in')){cv.classList.remove('shk');void cv.offsetWidth;cv.classList.add('shk')}
+   if(age<1.2){const r=e.firstElementChild.getBoundingClientRect(),sr=stage.getBoundingClientRect();BU.push([(r.left+r.width/2-sr.left)/sr.width*480,(r.top+r.height/2-sr.top)/sr.height*270,age,COL[e.firstElementChild.classList[1]]])}}
+  e.classList.toggle('in',on);
+  const n=e.firstElementChild&&e.firstElementChild.dataset.n;if(n&&k==i)e.firstElementChild.textContent=Math.round(n*ez((u-at)/1.4))+(e.firstElementChild.dataset.x||'')}));
+ const bg=g.createLinearGradient(0,0,0,270);bg.addColorStop(0,'#2a2468');bg.addColorStop(1,'#12102b');g.fillStyle=bg;g.fillRect(0,0,480,270);stars(t);
+ L=[];OV=null;SF[i](u);draw();OV&&OV();
+ BU.forEach(b=>{burst(b[0],b[1],b[2],b[3],30);burst(b[0],b[1],b[2]*.7,'#f6ecd0',14);if(b[2]<.12){g.fillStyle='rgba(255,255,255,.28)';g.fillRect(0,0,480,270)}});
+ wipe(u,i);sk.value=t;tm.textContent=fmt(t)+' / '+fmt(T)}
+function frame(now){const dt=Math.min(.1,(now-last)/1000);last=now;
+ if(play){t+=dt;if(t>=T){t=T;play=false;upd()}}
+ render();requestAnimationFrame(frame)}
+pp.onclick=()=>{if(t>=T-.05){t=0;play=true}else play=!play;upd()};
+sk.oninput=()=>{t=+sk.value;upd()};
+$('#fs').onclick=()=>{document.fullscreenElement?document.exitFullscreen():stage.requestFullscreen&&stage.requestFullscreen()};
+document.addEventListener('keydown',e=>{if(/BUTTON|INPUT/.test(e.target.tagName))return;
+ if(e.code=='Space'){e.preventDefault();pp.click()}
+ if(e.code=='ArrowRight')t=Math.min(T,t+3);if(e.code=='ArrowLeft')t=Math.max(0,t-3)});
+upd();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
