@@ -1,0 +1,23 @@
+{
+  "name": "@kawal/spikes",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tatum": "node --env-file=../.env.local src/tatum-check.mjs",
+    "tatum-simulate-testnet": "node --env-file=../.env.local src/tatum-simulate-testnet.mjs",
+    "memwal": "node --env-file=../.env.local src/memwal-check.mjs",
+    "g2": "node --env-file=../.env.local src/g2-write.mjs",
+    "g2-recall": "node --env-file=../.env.local src/g2-recall.mjs",
+    "account": "node --env-file=../.env.local src/memwal-account.mjs",
+    "account-id": "node --env-file=../.env.local src/memwal-account-id.mjs",
+    "balance": "node --env-file=../.env.local src/sui-balance.mjs",
+    "discover": "node --env-file=../.env.local src/memwal-discover.mjs"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.14.6",
+    "@mysten-incubation/memwal": "^0.1.9",
+    "@mysten/sui": "^2.37.0",
+    "@protobuf-ts/grpc-transport": "^2.11.1"
+  }
+}
