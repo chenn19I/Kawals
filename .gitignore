@@ -34,8 +34,6 @@ secrets/
 .secrets/
 
 # Local prototypes and scratch files
-Kawal.html
-Kawal_Voice.html
 *.local.html
 scratch/
 tmp/
@@ -65,10 +63,6 @@ desktop.ini
 
 # Internal docs and private notes (kept local)
 SECURITY.md
-penjelasan*.md
 *.private.md
 NOTES.md
 notes/
-
-# Integration experiments (contain identifiers, local only)
-spikes/
