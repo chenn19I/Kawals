@@ -1,0 +1,341 @@
+{
+  "runId": "2026-10-24T11-16-20-552Z",
+  "startedAt": "2026-10-24T11:16:20.554Z",
+  "accountId": "0xb45b9601c165e16caccfe392f756bdc8a36b38ccd9cd89d9296f5d24e243fc81",
+  "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+  "namespace": "kwl_a207ee5528dcf574",
+  "serverUrl": "https://relayer.memory.walrus.xyz",
+  "health": {
+    "status": "ok",
+    "version": "0.1.0",
+    "relayerVersion": "0.1.0",
+    "apiVersion": "1.0.0",
+    "minSupportedSdk": {
+      "typescript": "0.0.4",
+      "python": "0.1.0",
+      "mcp": "0.0.1"
+    },
+    "featureFlags": {
+      "auth.accountBoundNonce": true,
+      "auth.sealSessionHeader": true,
+      "config.publicDeploymentMetadata": true,
+      "remember.asyncJobs": true,
+      "remember.bulk": true,
+      "runtime.versionEndpoint": true
+    },
+    "deprecations": [
+      {
+        "surface": "header:x-delegate-key",
+        "deprecatedSince": "1.0.0",
+        "removalApiVersion": "2.0.0",
+        "guidance": "Use x-seal-session for relayer-managed SEAL decrypt flows; manual-mode requests should send no decrypt credential."
+      },
+      {
+        "surface": "env:SEAL_KEY_SERVERS",
+        "deprecatedSince": "1.0.0",
+        "removalApiVersion": "2.0.0",
+        "guidance": "Use SEAL_SERVER_CONFIGS so independent and committee key-server configs share one JSON schema."
+      }
+    ],
+    "build": {
+      "commit": "48e743b714d3ee5bf0bfc99451425e083b1117dc"
+    },
+    "mode": "production",
+    "prompt_versions": {
+      "extract": "extract.v7",
+      "ask": "ask.v2"
+    },
+    "write_ready": true,
+    "writes": "ok"
+  },
+  "balancesBefore": [],
+  "balancesAfter": [],
+  "memories": [
+    {
+      "index": 1,
+      "id": "alamat-ditolak",
+      "kind": "alamat",
+      "text": "Saya menolak transfer ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu meminta 2 SUI lalu menghilang. Alamat ini masuk daftar tolak saya.",
+      "status": "ok",
+      "elapsedMs": 21674,
+      "result": {
+        "id": "09b4e7d0-7ff5-43e8-b05b-8116b279fba0",
+        "job_id": "09b4e7d0-7ff5-43e8-b05b-8116b279fba0",
+        "blob_id": "EVGb6mIzqDA8W0dBy1BN7KFyXC-L5ul49-Hz_QAY6Ps",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 2,
+      "id": "alamat-dipercaya",
+      "kind": "alamat",
+      "text": "Alamat 0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3 adalah penjual langganan yang sudah dua kali transaksi lancar. Saya mempercayainya untuk transfer hingga 5 SUI.",
+      "status": "ok",
+      "elapsedMs": 22931,
+      "result": {
+        "id": "054fc5a6-ae9f-41ad-bc01-6546658d7fc4",
+        "job_id": "054fc5a6-ae9f-41ad-bc01-6546658d7fc4",
+        "blob_id": "tDEnLX55a6hrhbeSGBUNvek5JAstRxbyuVgEQtM04Rw",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 3,
+      "id": "batas-outflow",
+      "kind": "aturan",
+      "text": "Aturan pribadi saya: tahan setiap transaksi dengan total SUI keluar di atas 5 SUI, kecuali saya menyetujuinya secara eksplisit.",
+      "status": "ok",
+      "elapsedMs": 19032,
+      "result": {
+        "id": "9d14c5e1-a838-4957-8cea-76028a2a3abd",
+        "job_id": "9d14c5e1-a838-4957-8cea-76028a2a3abd",
+        "blob_id": "rtK57363M_fg7FCAkzbVlZyQ9jDuoj9se7FZKFXfRoc",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 4,
+      "id": "batas-penerima-baru",
+      "kind": "aturan",
+      "text": "Aturan pribadi saya: penerima yang belum pernah saya kirimi hanya boleh menerima maksimal 1 SUI.",
+      "status": "ok",
+      "elapsedMs": 24722,
+      "result": {
+        "id": "ec1229a7-a309-4832-a7b5-9b3567e0462e",
+        "job_id": "ec1229a7-a309-4832-a7b5-9b3567e0462e",
+        "blob_id": "W45on3AheRSoITkc1BHae8Kbq4sLGtM-HRd8M0oR6ko",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 5,
+      "id": "objek-non-koin",
+      "kind": "aturan",
+      "text": "Saya tidak mengizinkan objek non-koin, seperti NFT, ikut berpindah tanpa persetujuan eksplisit.",
+      "status": "ok",
+      "elapsedMs": 18663,
+      "result": {
+        "id": "8fecd756-3f63-4ce9-8f8c-7e7615419392",
+        "job_id": "8fecd756-3f63-4ce9-8f8c-7e7615419392",
+        "blob_id": "iPXqJ76jeXZ8brEGiMTVpEISViLsM_fYT2N5tCx09Q4",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 6,
+      "id": "paket-asing",
+      "kind": "aturan",
+      "text": "Saya menahan transaksi yang memanggil paket Move yang belum ada di allowlist saya, misalnya paket 0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5.",
+      "status": "ok",
+      "elapsedMs": 20449,
+      "result": {
+        "id": "05a99e77-295b-4b73-8d67-726d776bf520",
+        "job_id": "05a99e77-295b-4b73-8d67-726d776bf520",
+        "blob_id": "DhaEMIA-DHTXBjO607_El-tMulkipn5ozBIZPIIxg8k",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 7,
+      "id": "keputusan-tolak",
+      "kind": "keputusan",
+      "text": "Saya pernah menolak transfer 2 SUI ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu terhubung dengan penipuan.",
+      "status": "ok",
+      "elapsedMs": 17756,
+      "result": {
+        "id": "ad8dabce-3e0e-4d96-baab-898cef38d8e5",
+        "job_id": "ad8dabce-3e0e-4d96-baab-898cef38d8e5",
+        "blob_id": "6aAP6JpCOlPC9-m6VeE7-tJwsbN59rYODgXRqjOHpdc",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 8,
+      "id": "keputusan-lolos",
+      "kind": "keputusan",
+      "text": "Saya pernah meloloskan transfer 2 SUI ke alamat 0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3 karena alamat itu penjual langganan tepercaya.",
+      "status": "ok",
+      "elapsedMs": 18632,
+      "result": {
+        "id": "87f316f6-aee2-445b-ab46-1850b7a530a9",
+        "job_id": "87f316f6-aee2-445b-ab46-1850b7a530a9",
+        "blob_id": "B-2GdBakMZZkFtNvj-HptzVbGd3_S-k3kzEC41vxldE",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 9,
+      "id": "preferensi-penjelasan",
+      "kind": "preferensi",
+      "text": "Saya ingin penjelasan putusan dalam bahasa Indonesia yang singkat: satu kalimat ringkasan dan maksimal tiga detail.",
+      "status": "ok",
+      "elapsedMs": 20957,
+      "result": {
+        "id": "75303678-458d-4ae0-b517-8e4b96efb0c7",
+        "job_id": "75303678-458d-4ae0-b517-8e4b96efb0c7",
+        "blob_id": "omocSUxZnAoKtLe5nwuqov1f-lPEIn-I9Vh1uG5_9N0",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    },
+    {
+      "index": 10,
+      "id": "simulasi-gagal",
+      "kind": "aturan",
+      "text": "Jika simulasi transaksi gagal atau tidak menjawab dalam 5 detik, saya menolak transaksi itu.",
+      "status": "ok",
+      "elapsedMs": 20387,
+      "result": {
+        "id": "e637c858-5564-4a4f-a4b3-d448aa353b28",
+        "job_id": "e637c858-5564-4a4f-a4b3-d448aa353b28",
+        "blob_id": "VEnuSY4_z2x64djp8joIkAn5TB6CYzOZSsMZGubY7So",
+        "owner": "0x40f63676ae2cd10e6e530b9f7e4b86a4d3aaf96e6567323c60361d2e39363042",
+        "namespace": "kwl_a207ee5528dcf574"
+      },
+      "error": null
+    }
+  ],
+  "recalls": [
+    {
+      "query": "Alamat mana yang saya tolak?",
+      "elapsedMs": 2126,
+      "resultCount": 5,
+      "results": [
+        {
+          "blob_id": "EVGb6mIzqDA8W0dBy1BN7KFyXC-L5ul49-Hz_QAY6Ps",
+          "text": "Saya menolak transfer ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu meminta 2 SUI lalu menghilang. Alamat ini masuk daftar tolak saya.",
+          "distance": 0.44220889725915347,
+          "created_at": "2026-10-24T11:16:41.052533Z"
+        },
+        {
+          "blob_id": "6aAP6JpCOlPC9-m6VeE7-tJwsbN59rYODgXRqjOHpdc",
+          "text": "Saya pernah menolak transfer 2 SUI ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu terhubung dengan penipuan.",
+          "distance": 0.5558347217531912,
+          "created_at": "2026-10-24T11:18:52.568648Z"
+        },
+        {
+          "blob_id": "rtK57363M_fg7FCAkzbVlZyQ9jDuoj9se7FZKFXfRoc",
+          "text": "Aturan pribadi saya: tahan setiap transaksi dengan total SUI keluar di atas 5 SUI, kecuali saya menyetujuinya secara eksplisit.",
+          "distance": 0.5687726138414795,
+          "created_at": "2026-10-24T11:17:27.541507Z"
+        },
+        {
+          "blob_id": "iPXqJ76jeXZ8brEGiMTVpEISViLsM_fYT2N5tCx09Q4",
+          "text": "Saya tidak mengizinkan objek non-koin, seperti NFT, ikut berpindah tanpa persetujuan eksplisit.",
+          "distance": 0.5725719621591241,
+          "created_at": "2026-10-24T11:18:11.643385Z"
+        },
+        {
+          "blob_id": "DhaEMIA-DHTXBjO607_El-tMulkipn5ozBIZPIIxg8k",
+          "text": "Saya menahan transaksi yang memanggil paket Move yang belum ada di allowlist saya, misalnya paket 0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5.",
+          "distance": 0.58914246989318,
+          "created_at": "2026-10-24T11:18:30.000872Z"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "query": "Berapa batas transfer untuk penerima baru?",
+      "elapsedMs": 2707,
+      "resultCount": 5,
+      "results": [
+        {
+          "blob_id": "W45on3AheRSoITkc1BHae8Kbq4sLGtM-HRd8M0oR6ko",
+          "text": "Aturan pribadi saya: penerima yang belum pernah saya kirimi hanya boleh menerima maksimal 1 SUI.",
+          "distance": 0.5016831699734012,
+          "created_at": "2026-10-24T11:17:47.863208Z"
+        },
+        {
+          "blob_id": "B-2GdBakMZZkFtNvj-HptzVbGd3_S-k3kzEC41vxldE",
+          "text": "Saya pernah meloloskan transfer 2 SUI ke alamat 0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3 karena alamat itu penjual langganan tepercaya.",
+          "distance": 0.559693156120183,
+          "created_at": "2026-10-24T11:19:11.401625Z"
+        },
+        {
+          "blob_id": "6aAP6JpCOlPC9-m6VeE7-tJwsbN59rYODgXRqjOHpdc",
+          "text": "Saya pernah menolak transfer 2 SUI ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu terhubung dengan penipuan.",
+          "distance": 0.564842742673912,
+          "created_at": "2026-10-24T11:18:52.568648Z"
+        },
+        {
+          "blob_id": "tDEnLX55a6hrhbeSGBUNvek5JAstRxbyuVgEQtM04Rw",
+          "text": "Alamat 0xc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3 adalah penjual langganan yang sudah dua kali transaksi lancar. Saya mempercayainya untuk transfer hingga 5 SUI.",
+          "distance": 0.5657101768783181,
+          "created_at": "2026-10-24T11:17:04.556504Z"
+        },
+        {
+          "blob_id": "EVGb6mIzqDA8W0dBy1BN7KFyXC-L5ul49-Hz_QAY6Ps",
+          "text": "Saya menolak transfer ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu meminta 2 SUI lalu menghilang. Alamat ini masuk daftar tolak saya.",
+          "distance": 0.568198200151615,
+          "created_at": "2026-10-24T11:16:41.052533Z"
+        }
+      ],
+      "attempts": 1
+    },
+    {
+      "query": "Apa aturan saya tentang objek non-koin?",
+      "elapsedMs": 2587,
+      "resultCount": 5,
+      "results": [
+        {
+          "blob_id": "iPXqJ76jeXZ8brEGiMTVpEISViLsM_fYT2N5tCx09Q4",
+          "text": "Saya tidak mengizinkan objek non-koin, seperti NFT, ikut berpindah tanpa persetujuan eksplisit.",
+          "distance": 0.31424522218103,
+          "created_at": "2026-10-24T11:18:11.643385Z"
+        },
+        {
+          "blob_id": "rtK57363M_fg7FCAkzbVlZyQ9jDuoj9se7FZKFXfRoc",
+          "text": "Aturan pribadi saya: tahan setiap transaksi dengan total SUI keluar di atas 5 SUI, kecuali saya menyetujuinya secara eksplisit.",
+          "distance": 0.49405843875064803,
+          "created_at": "2026-10-24T11:17:27.541507Z"
+        },
+        {
+          "blob_id": "W45on3AheRSoITkc1BHae8Kbq4sLGtM-HRd8M0oR6ko",
+          "text": "Aturan pribadi saya: penerima yang belum pernah saya kirimi hanya boleh menerima maksimal 1 SUI.",
+          "distance": 0.5784226069997487,
+          "created_at": "2026-10-24T11:17:47.863208Z"
+        },
+        {
+          "blob_id": "DhaEMIA-DHTXBjO607_El-tMulkipn5ozBIZPIIxg8k",
+          "text": "Saya menahan transaksi yang memanggil paket Move yang belum ada di allowlist saya, misalnya paket 0xe5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5.",
+          "distance": 0.5998032324768899,
+          "created_at": "2026-10-24T11:18:30.000872Z"
+        },
+        {
+          "blob_id": "6aAP6JpCOlPC9-m6VeE7-tJwsbN59rYODgXRqjOHpdc",
+          "text": "Saya pernah menolak transfer 2 SUI ke alamat 0xb2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2 karena alamat itu terhubung dengan penipuan.",
+          "distance": 0.6155349192808472,
+          "created_at": "2026-10-24T11:18:52.568648Z"
+        }
+      ],
+      "attempts": 1
+    }
+  ],
+  "summary": {
+    "attempted": 10,
+    "succeeded": 10,
+    "failed": 0,
+    "totalWriteMs": 205203,
+    "avgWriteMs": 20520,
+    "recallQueries": 3,
+    "recallHits": 15
+  },
+  "finishedAt": "2026-10-24T11:20:06.201Z"
+}
