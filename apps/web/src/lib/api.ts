@@ -2,8 +2,20 @@ import type { Decision, MemoryKind, RuleId, ThresholdKey } from '@kawal/rules';
 
 const configured = import.meta.env.VITE_API_URL?.trim();
 
+function resolveApiBaseUrl(): string {
+  if (configured) return configured.replace(/\/+$/, '');
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') {
+      return 'http://127.0.0.1:8787';
+    }
+    return '';
+  }
+  return 'http://127.0.0.1:8787';
+}
+
 /** Only the public API origin lives in the browser bundle. */
-export const API_BASE_URL = (configured || 'http://127.0.0.1:8787').replace(/\/+$/, '');
+export const API_BASE_URL = resolveApiBaseUrl();
 
 export class ApiRequestError extends Error {
   readonly status: number;
