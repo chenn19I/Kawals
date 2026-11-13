@@ -4,7 +4,8 @@
 
 Kawal sits between you and a transaction signature. It simulates what a transaction will do, checks it against a deterministic rules engine, and returns one of three verdicts: **PASS**, **HOLD** or **REJECT**. Every decision you make is stored as memory on [Walrus Memory](https://www.walrus.xyz), so the guard gets stricter in the ways you care about and never forgets across sessions.
 
-> **Hackathon track:** Smart Agents for Real Life, [Walrus Sessions: Tatum Total Recall](https://thewalrussessions.wal.app/tatum-total-recall/index.html).
+> **Hackathon track:** Smart Agents for Real Life, [Walrus Sessions: Tatum Total Recall](https://thewalrussessions.wal.app/tatum-total-recall/index.html).  
+> **Live Demo:** [https://kawals.vercel.app](https://kawals.vercel.app) · **Pitch & Video Presentation:** [Kawal_Voice.html](https://kawals.vercel.app/Kawal_Voice.html) · **Documentation:** [Penjelasan Proyek](./penjelasan%20deskripsi%20proyek.md)
 
 ## Why Kawal
 
@@ -59,6 +60,7 @@ kawal/
   packages/scenes  placeholder for shared scenes
   packages/video   placeholder for Remotion
   fixtures         12 transaction scenarios
+  spikes           Walrus Memory Mainnet (10/10) & Tatum gRPC verification gates
 ```
 
 ## Web screens
@@ -99,10 +101,19 @@ Default limits: total outflow 5 SUI, new recipient 1 SUI, trusted recipient 5 SU
 
 | Service | Role | Status |
 | --- | --- | --- |
-| Tatum gRPC (Sui Mainnet) | checkpoint reads and transaction simulation | checkpoint reads working; live simulation in progress |
-| Walrus Memory (Mainnet) | persistent decision memory and recall | working: writes and recall verified |
+| Tatum gRPC (Sui Mainnet) | checkpoint reads and transaction simulation | checkpoint reads working (`spikes/src/tatum-check.mjs`); live simulation in progress |
+| Walrus Memory (Mainnet) | persistent decision memory and recall | **Verified on Mainnet**: 10/10 memories written and 10/10 recall queries verified. See [G2-REPORT.md](./spikes/G2-REPORT.md) and [spikes/results/](./spikes/results/). |
 
 The web demo stores its data in `localStorage` only. It makes no real signatures or transactions.
+
+## Hackathon Submission Highlights
+
+This project fulfills the requirements of [Walrus x Tatum: Total Recall](https://thewalrussessions.wal.app/tatum-total-recall/index.html):
+- **Walrus Memory Mainnet Integration**: 10 distinct memory entries written to Mainnet relayer (`kwl_a207ee5528dcf574`), verified with 10 recall queries (top-1 accuracy 10/10). Detailed run logs and blob IDs stored in [spikes/results/](./spikes/results/) and [G2-REPORT.md](./spikes/G2-REPORT.md).
+- **Tatum Sui Integration**: Connected to Tatum gRPC gateway for reading Sui Mainnet checkpoints and objects.
+- **Production Web Deployment**: Hosted on Vercel at [https://kawals.vercel.app](https://kawals.vercel.app).
+- **Comprehensive Indonesian Documentation**: Complete system architecture, rules engine breakdown, and product design documented in [penjelasan deskripsi proyek.md](./penjelasan%20deskripsi%20proyek.md).
+- **Interactive Pitch & Voice Demo**: Animated detective elephant narrative explaining the core concept in [Kawal_Voice.html](./Kawal_Voice.html).
 
 ## Security
 
