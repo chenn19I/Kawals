@@ -1,12 +1,24 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "pnpm --filter @kawal/web build",
+  "buildCommand": "pnpm build",
   "outputDirectory": "apps/web/dist",
   "framework": "vite",
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/api/(.*)", "destination": "/api" },
+    { "source": "/health", "destination": "/api" },
+    { "source": "/network", "destination": "/api" },
+    { "source": "/scenarios", "destination": "/api" },
+    { "source": "/self-test", "destination": "/api" },
+    { "source": "/preflight", "destination": "/api" },
+    { "source": "/evaluate", "destination": "/api" },
+    { "source": "/decisions", "destination": "/api" },
+    { "source": "/decisions/(.*)", "destination": "/api" },
+    { "source": "/evaluations", "destination": "/api" },
+    { "source": "/evaluations/(.*)", "destination": "/api" },
+    { "source": "/memories", "destination": "/api" },
+    { "source": "/memories/(.*)", "destination": "/api" },
+    { "source": "/revoke", "destination": "/api" },
+    { "source": "/restore", "destination": "/api" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
